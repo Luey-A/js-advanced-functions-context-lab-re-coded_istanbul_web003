@@ -52,3 +52,4 @@ function createTimeInEvent(dateStr){
     this.timeInEvents.push(timeInfo);
     return this; //obj which we apply the function
 }
+
