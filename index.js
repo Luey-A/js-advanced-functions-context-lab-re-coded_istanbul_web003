@@ -20,3 +20,35 @@ let allWagesFor = function () {
 
     return payable
 }
+
+function createEmployeeRecord([firstName, familyName,title,payPerHour]){
+    const employeeObj = {
+        firstName: firstName,
+        familyName:familyName,
+        title: title,
+        payPerHour: payPerHour,
+        timeInEvents: [],
+        timeOutEvents:[]
+    }
+    return employeeObj;
+}
+
+function createEmployeeRecords(arrsOfEmployees){
+    const objsOfEmployees = arrsOfEmployees.map(
+        employeeArr=>createEmployeeRecord(employeeArr)
+    );
+    return objsOfEmployees;
+}
+const date= "YYYY-MM-DD 1100";
+function createTimeInEvent(dateStr){
+    const dateArr= dateStr.split(" ");
+    const hour= parseInt(dateArr[1]);
+    const date= dateArr[0];
+    const timeInfo= {
+        type: "TimeIn",
+        hour: hour,
+        date: date
+    }
+    this.timeInEvents.push(timeInfo);
+    return this; //obj which we apply the function
+}
